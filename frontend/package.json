@@ -1,13 +1,15 @@
 {
   "name": "frontend",
   "version": "0.1.0",
-  "proxy": "https://localhost:3000",
+  "proxy": "https://localhost:5000",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "concurrently": "^7.0.0",
+    "nodeman": "^1.1.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.6",
@@ -15,7 +17,10 @@
     "react-scripts": "5.0.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "node backend/index.js",
+    "server": "nodemon backend/index.js",
+    "client": "npm start",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
